@@ -5,13 +5,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Person masha = new Person("Маша", 60, "Female", UUID.randomUUID().toString()); 
+        Person masha = new Person("Маша", 60, "Female", UUID.randomUUID().toString());
         Person toma = new Person("Тома", 65, "Female", "1");
         Person irina = new Person("Ирина", 40, "Female", "2");
         Person vasya = new Person("Вася", 42, "Male", "3");
         Person jane = new Person("Женя", 10, "Female", "4");
         Person ivan = new Person("Ваня", 20, "Male", "5");
-        Person maxim = new Person(null, 80, "Male", "6");
         ArrayList<Person> MyPerson = new ArrayList<>();
         MyPerson.add(masha);
         MyPerson.add(toma);
@@ -19,7 +18,7 @@ public class Main {
         MyPerson.add(vasya);
         MyPerson.add(jane);
         MyPerson.add(ivan);
-        MyPerson.add(maxim);
+
         newGeo gt = new newGeo();
 
         gt.append(masha, Relationship.parent, irina, Relationship.children);
@@ -27,11 +26,11 @@ public class Main {
         gt.append(irina, Relationship.wife, vasya, Relationship.husband);
         gt.append(irina, Relationship.parent, jane, Relationship.children);
         gt.append(irina, Relationship.parent, ivan, Relationship.children);
-        gt.append(maxim, Relationship.parent, irina, Relationship.children);
+
         System.out.println(irina); // вывод информации о персоне (без служебного ID)
 
-        print(gt, vasya, Relationship.husband); 
-        
+        print(gt, vasya, Relationship.husband);
+
         String find_ID = "6";
         Person x = null;
         for (Person tmp : MyPerson) {
@@ -42,6 +41,9 @@ public class Main {
         if (x != null) {
             print(gt, x, SearchID.grandParent); // результат
         }
+        gt.write(gt);
+        newGeo READTREE = gt.read(MyPerson);
+        print(READTREE, vasya, Relationship.husband);
 
     }
 
@@ -82,7 +84,7 @@ public class Main {
                 st = "GrandDaughter";
         }
         String str1 = Integer.toString(iDPerson.getAge());
-        str1=iDPerson.getFullName()+" возрастом "+str1+" " +st+" ";
+        str1 = iDPerson.getFullName() + " возрастом " + str1 + " " + st + " ";
         System.out.print(str1);
         System.out.println(new Research(tree).spend(iDPerson, re));
     }

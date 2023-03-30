@@ -1,0 +1,10 @@
+<Маша: 60 Female parent Ирина: 40 Female>
+<Ирина: 40 Female children Маша: 60 Female>
+<Тома: 65 Female parent Вася: 42 Male>
+<Вася: 42 Male children Тома: 65 Female>
+<Ирина: 40 Female wife Вася: 42 Male>
+<Вася: 42 Male husband Ирина: 40 Female>
+<Ирина: 40 Female parent Женя: 10 Female>
+<Женя: 10 Female children Ирина: 40 Female>
+<Ирина: 40 Female parent Ваня: 20 Male>
+<Ваня: 20 Male children Ирина: 40 Female>

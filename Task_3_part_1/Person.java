@@ -5,15 +5,17 @@ enum Gender {
 public class Person {
     private String fullName;
     private int age;
-    private Gender gender; 
+    private Gender gender;
     private String ID;
 
-    public Person(String fullName, int age, String gender,String ID) {
+    public Person(String fullName, int age, String gender, String ID) {
         this.fullName = fullName;
         this.age = age;
-        if (gender == "Male" || gender == "Female") this.gender = Gender.valueOf(gender);
-        else this.gender = null;
-        this.ID=ID;
+        if (gender == "Male" || gender == "Female")
+            this.gender = Gender.valueOf(gender);
+        else
+            this.gender = null;
+        this.ID = ID;
     }
 
     public String getFullName() {
@@ -27,6 +29,7 @@ public class Person {
     public int getAge() {
         return this.age;
     }
+
     public String getID() {
         return this.ID;
     }
@@ -34,24 +37,42 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
     public void setID(String ID) {
         this.ID = ID;
     }
-    
+
     public String getGender() {
-        if (this.gender != null){
+        if (this.gender != null) {
             return this.gender.toString();
-        }
-        else return "пол не задан";
+        } else
+            return "пол не задан";
     }
 
     public void setGender(String gender) {
-        if (gender == "Male" || gender == "Female") this.gender = Gender.valueOf(gender);
-        else this.gender = null;
+        if (gender == "Male" || gender == "Female")
+            this.gender = Gender.valueOf(gender);
+        else
+            this.gender = null;
     }
 
-    public String toString(){
+    public String toString() {
         return String.format("%s: %d %s", getFullName(), getAge(), getGender());
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        Person tmp = (Person) obj;
+        String Name = tmp.getFullName();
+        String Next = this.getFullName();
+        if (Name.contains(Next)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
 }
